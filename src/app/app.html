@@ -1,0 +1,20 @@
+<nav id="header">
+  <img src=".././LogoMakr.png">
+	<a class="head_home" [routerLink]="['/home']">
+    <span class="link_text">Home</span>
+  </a>
+
+	<a class="head_about" [routerLink]="['/about']">
+    <span class="link_text">About</span>
+  </a>
+
+	<a class="head_references" [routerLink]="['/references']">
+    <span class="link_text">References</span>
+  </a>
+</nav>
+
+<hr>
+
+<main>
+	<router-outlet></router-outlet>
+</main>

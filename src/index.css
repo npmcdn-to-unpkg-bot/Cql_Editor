@@ -1,0 +1,27 @@
+#editor {
+  position: fixed;
+  width: 95%;
+  height: 75%;
+  margin-top: 15px;
+}
+
+div {
+  color: #DCDCDC;
+}
+.ace_constant.ace_date, .ace_time {
+  color: #DE8D47;
+}
+.ace_string.ace_double, .ace_numeric, .ace_paren, .ace_text, .ace_operator {
+  color: #DCDCDC !important;
+}
+.ace_keyword, .ace_query, .ace_control {
+  color: #9932CC !important;
+  font-weight: 500;
+}
+.ace_language {
+  color: #FFA500 !important;
+}
+.ace_support.ace_type {
+  font-style: italic;
+  color: #66D9EF;
+}
