@@ -1,7 +1,7 @@
-CQL Editor
+##CQL Editor
 
-Usage:
-Clone repository
-npm install
-npm start
-Open browser and navigate to http://localhost:3000
+###Usage:
+- Clone repository
+- npm install
+- npm start
+- Open browser and navigate to http://localhost:3000
