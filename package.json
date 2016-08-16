@@ -24,7 +24,8 @@
     "typings": "~1.0.3",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.8.4"
+    "webpack-merge": "^0.8.4",
+    "ng2-ace-editor": "^0.0.18"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
