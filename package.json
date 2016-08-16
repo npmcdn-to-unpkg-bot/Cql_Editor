@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
-  "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "name": "cql-editor",
+  "version": "0.0.1",
+  "description": "Web-based CQL Editor",
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
@@ -11,8 +11,7 @@
     "start": "npm run server"
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Joshua Clingo <jclingo@myharmoniq.com>"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -40,18 +39,9 @@
     "rxjs": "5.0.0-beta.6",
     "zone.js": "~0.6.12"
   },
-  "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular2-seed.git"
-  },
-  "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
   },
   "homepage": "https://github.com/angular/angular2-seed#readme"
 }

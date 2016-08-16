@@ -13,37 +13,6 @@
       Loading...
     </app>
 
-    <input type="hidden" name="ace-output" style="display: none;">
-    <script src="/ace/build/src/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // the point of this element creation is to avoid an ugly div displaying on reload
-        var init = document.createElement('div');
-        init.id = 'editor';
-        var msg = document.createTextNode("// Start coding here!!\n");
-        init.appendChild(msg);
-        $('body')[0].appendChild(init);
-
-        var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/monokai");
-            editor.getSession().setMode("ace/mode/cql");
-            editor.focus();
-            editor.setOptions({
-              fontSize: "17px",
-              tabSize: 2,
-              useSoftTabs: true
-            })
-            editor.gotoLine(2, 0);
-
-        var output = $('input[name="ace-output"]');
-            editor.getSession().on("change", function () {
-            output.val(editor.getSession().getValue());
-        });
-      });
-
-    </script>
-
     <script src="/polyfills.bundle.js"></script>
     <script src="/vendor.bundle.js"></script>
     <script src="/main.bundle.js"></script>
