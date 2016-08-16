@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import { AceEditorDirective } from 'ng2-ace-editor';
 
+import 'cql-ace-syntax/cql'; 
 
 @Component({
   selector: 'home',
