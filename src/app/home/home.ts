@@ -13,7 +13,10 @@ import 'cql-ace-syntax/cql';
 })
 export class Home {
 
-  text: string = "";
+  eText: string = "";
+  eOptions: any = [
+    {hScrollBarAlwaysVisible: true}
+  ];
 
   constructor() {
   };
