@@ -98,11 +98,11 @@ button {
     cursor: pointer;
 }
 
-.input-section .button.loading {
+.input-section .button.running {
     background-color: darkgrey;
 }
 
-.input-section .button.loading:hover {
+.input-section .button.running:hover {
     cursor: default;
 }
 
@@ -113,4 +113,16 @@ button {
 
 .output-section .title {
     margin: 10px;
+}
+
+.output-section .button {
+    background-color: #2f2f2f;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+.output-section .button:hover {
+    cursor: pointer;
 }
