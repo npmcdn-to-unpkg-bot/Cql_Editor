@@ -1,5 +1,116 @@
+:host {
+    font-family: 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+}
+
+[hidden] {
+    display: none;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+button {
+    margin:0;
+}
+
+#header {
+    height: 2em;
+    background-color: #2f2f2f;
+    color: #cdcdcd;
+}
+
+#header .title {
+    font-size: 1em;
+    line-height: 1em;
+    margin-left: 5px; 
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+
+#header .button {
+    background-color: #2196F3;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+#header .button:hover {
+    cursor: pointer;
+}
+
+.resources {
+    background-color: #2196F3;
+    color: white;
+}
+
+.resources ul {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+}
+
+.resources a {
+    color: white;
+}
+
+.resources a:hover {
+    color: #fdfdfd;
+}
+
 .input-window {
-    min-height: 200px;
+    min-height: 400px;
     width:100%;
     overflow: auto;
+}
+
+.input-section {
+    background: #ebebeb;
+    color: #333;
+}
+
+.input-section .title {
+    margin: 10px;
+}
+
+.input-section .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+.input-section .button:hover {
+    cursor: pointer;
+}
+
+.input-section .button.loading {
+    background-color: darkgrey;
+}
+
+.input-section .button.loading:hover {
+    cursor: default;
+}
+
+.output-section {
+    background-color: #272822;
+    color: #F8F8F2;
+}
+
+.output-section .title {
+    margin: 10px;
 }

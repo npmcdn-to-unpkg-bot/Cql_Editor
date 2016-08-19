@@ -1,5 +1,35 @@
-<nav id="header">
-  <img src="../assets/img/cql-editor-logo.png">
+<nav id="header" class="mx-auto flex">
+  <div class="mx-auto self-center flex-auto title">CQL Editor</div>
+  <button (click)="toggleResources()" class="self-center button flex">
+    <div class="self-center" style="margin-right: 5px;">
+      CQL Language Resources
+    </div>
+    <i class="material-icons">help</i>
+  </button>
 </nav>
-<md-button></md-button>
-<div class="input-window" ace-editor [text]="iText" [mode]="'sql'" [options]="iOptions"></div>
+<div class="resources" [hidden]="!resources">
+  <ul>
+    <li><a href="https://cqlengine.readthedocs.io/en/latest/" target="_blank">CQL Engine Documentation Home</a></li>
+  </ul>
+</div>
+<div class="md-flex">
+  <div class="md-col-7 input-section">
+    <div class="row flex">
+      <h4 class="title flex-auto">Input</h4>
+      <button class="button flex" [class.loading]="loading" (click)="runScript()">
+        <div class="self-center">
+          {{ loading ? 'Running...' : 'Run'}}
+        </div>
+        <i class="material-icons" [hidden]="loading">play_arrow</i>
+      </button>
+    </div>
+    
+    <div class="input-window" ace-editor [text]="iText" [mode]="'sql'" [options]="iOptions" [theme]="oTheme" [autoUpdateContent]="true"></div>
+  </div>
+  <div class="md-col-5 output-section">
+    <h4 class="title">Output</h4>
+    <div class="input-window" ace-editor [text]="oText" [mode]="'sql'" [options]="oOptions" [readOnly]="oIsReadOnly" [autoUpdateContent]="true"></div>
+  </div>
+
+</div>
+
