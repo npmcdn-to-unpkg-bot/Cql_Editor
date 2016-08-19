@@ -4,25 +4,12 @@
   <meta charset="utf-8">
   <title>CQL Editor</title>
   <base href="/">
-  <link href="https://npmcdn.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
-  {{/unless}}
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
 </head>
 <body style="margin:0;">
   <app-root>Loading...</app-root>
-  
-    {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
-    {{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
-  
 </body>
 </html>
