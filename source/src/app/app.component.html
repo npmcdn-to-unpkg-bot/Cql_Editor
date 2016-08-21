@@ -23,7 +23,7 @@
         <i class="material-icons" [hidden]="running">play_arrow</i>
       </button>
     </div>
-    <div class="input-window" ace-editor [text]="iText" [mode]="'sql'" [options]="iOptions" [theme]="iTheme" [autoUpdateContent]="true" (textChanged)="onInputChange($event)"></div>
+    <div class="input-window" ace-editor [text]="iText" [mode]="'cql'" [options]="iOptions" [theme]="iTheme" [autoUpdateContent]="true" (textChanged)="onInputChange($event)"></div>
   </div>
   <div class="md-col-5 output-section">
     <div class="row flex">
@@ -35,7 +35,7 @@
         <i class="material-icons" [hidden]="running">clear_all</i>
       </button>
     </div>
-    <div class="input-window" ace-editor [text]="oText" [mode]="'sql'" [options]="oOptions" [readOnly]="oIsReadOnly" [autoUpdateContent]="true"></div>
+    <div class="input-window" ace-editor [text]="oText" [mode]="'cql'" [options]="oOptions" [readOnly]="oIsReadOnly" [autoUpdateContent]="true"></div>
   </div>
 
 </div>

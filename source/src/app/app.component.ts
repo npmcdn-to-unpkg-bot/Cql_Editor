@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { AceEditorDirective } from 'ng2-ace-editor';
+//import { AceEditorDirective } from 'ng2-ace-editor';
 //import { MdButton } from '@angular2-material/button';
-import { APIService } from './shared/index';
+import { APIService, AceEditorDirective } from './shared/index';
 
 import 'brace/theme/clouds';
 import 'brace/mode/sql';
 import 'cql-ace-syntax/cql'; 
 
 @Component({
-  moduleId: module.id,
   directives: [AceEditorDirective],
   providers: [APIService],
   selector: 'app-root',
@@ -17,15 +16,15 @@ import 'cql-ace-syntax/cql';
 })
 export class AppComponent {
 
-  constructor (private _apiService: APIService) {
+ constructor (private _apiService: APIService) {
 
-  }
+ }
 
   error : string = '';
   running: boolean = false;
 
   // Input editor settings
-  iText: string = `# Enter your CQL script here and press 'Run'"
+  iText: string = `# Enter your CQL script here and press 'Run'
 # The results will be displayed on the console to the right
 
 `;
@@ -33,23 +32,22 @@ export class AppComponent {
   iTheme: string = "clouds";
 
   runScript() {
-    // TODO: Add call to API service
     if (!this.running) {
       this.running = true;
       this._apiService
         .post(this.iText)
-        .then(response => this.oText = response)
+        .then(response => {
+          this.oText += '\n' + response + '\n';
+          this.running = false;
+
+        })
         .catch(error => this.error = error);
-      this.oText += this.iText;
     }
-    
-    //this.loading = false;
   }
 
   onInputChange(code) {
     this.iText = code;
   }
-
 
   // Output editor settings
   

@@ -1,5 +1,5 @@
-import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -7,7 +7,7 @@ export class APIService {
 
   private serviceUrl = 'https://google.com';  // URL to web api
 
-  constructor(private http: Http) { }
+constructor(private http: Http) { }
 //   getHeroes() {
 //     return this.http.get(this.heroesUrl)
 //                .toPromise()

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    HttpModule
   ],
   providers: [],
   entryComponents: [AppComponent],
