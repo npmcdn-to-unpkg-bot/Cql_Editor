@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class APIService {
 
-  private serviceUrl = 'https://google.com';  // URL to web api
+  private serviceUrl = 'http://cql.dataphoria.org/cql-execution-service/cql/evaluate';  // URL to web api
 
 constructor(private http: Http) { }
 //   getHeroes() {
@@ -36,11 +36,11 @@ constructor(private http: Http) { }
   // Send code statement
   post(code: string): Promise<string> {
     let headers = new Headers({
-      'Content-Type': 'application/json'});
+      'Content-Type': 'text/plain'});
     return this.http
                .post(this.serviceUrl, code, {headers: headers})
                .toPromise()
-               .then(res => res.json().data)
+               .then(res => res.json())
                .catch(this.handleError);
   }
   // Update existing Hero

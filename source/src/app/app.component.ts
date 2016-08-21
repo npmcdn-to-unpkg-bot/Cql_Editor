@@ -34,12 +34,17 @@ export class AppComponent {
       this.running = true;
       this._apiService
         .post(this.iText)
-        .then(response => {
-          this.oText += '\n' + response + '\n';
+        .then(responses => {
+          this.processResponse(responses);
           this.running = false;
-
         })
         .catch(error => this.error = error);
+    }
+  }
+
+  private processResponse (responses: any) {
+    for (let response of responses) {
+    this.oText += '>> ' + response.result + '\n';
     }
   }
 
