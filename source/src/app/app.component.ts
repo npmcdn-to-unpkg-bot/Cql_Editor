@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-//import { AceEditorDirective } from 'ng2-ace-editor';
-//import { MdButton } from '@angular2-material/button';
 import { APIService, AceEditorDirective } from './shared/index';
 
 import 'brace/theme/clouds';

@@ -23,7 +23,7 @@ button {
 #header {
     height: 2em;
     background-color: #2f2f2f;
-    color: #cdcdcd;
+    color: #fff;
 }
 
 #header .title {
@@ -71,8 +71,12 @@ button {
     color: #fdfdfd;
 }
 
-.input-window {
-    min-height: 400px;
+.editors {
+    border-bottom: 1px solid #efefef;
+}
+
+.input-window, .output-window {
+    min-height: 600px;
     width:100%;
     overflow: auto;
 }
