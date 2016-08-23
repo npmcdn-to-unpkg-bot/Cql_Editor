@@ -130,3 +130,13 @@ button {
 .output-section .button:hover {
     cursor: pointer;
 }
+
+#introduction {
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+#introduction h1 {
+    font-size: 3em;
+}

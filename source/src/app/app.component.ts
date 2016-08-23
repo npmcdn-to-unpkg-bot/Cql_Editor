@@ -14,16 +14,14 @@ import 'cql-ace-syntax/cql';
 })
 export class AppComponent {
 
- constructor (private _apiService: APIService) {
-
- }
+ constructor (private _apiService: APIService) {}
 
   error : string = '';
   running: boolean = false;
 
   // Input editor settings
-  iText: string = `# Enter your CQL script here and press 'Run'
-# The results will be displayed on the console to the right
+  iText: string = `// Enter your CQL script here and press 'Run'
+// The results will be displayed on the console to the right
 
 `;
   iOptions:any = {vScrollBarAlwaysVisible: true} ;
@@ -35,16 +33,29 @@ export class AppComponent {
       this._apiService
         .post(this.iText)
         .then(responses => {
-          this.processResponse(responses);
+          this.processResponses(responses);
           this.running = false;
         })
         .catch(error => this.error = error);
     }
   }
 
-  private processResponse (responses: any) {
+  // Walks through responses and tacks each one onto the output window
+  private processResponses (responses: any) {
     for (let response of responses) {
-    this.oText += '>> ' + response.result + '\n';
+      // Invalid expression – could not translate
+      if (response['translation-error']) {
+        this.oText += '>> Translation Error: ' + response['translation-error'] + '\n';
+      }
+      // Invalid expression – error with named expression
+      if (response['error']) {
+        this.oText += '>> Error: ' + response['error'] + '\n';
+      }
+      // Valid expression
+      if (response['result']) {
+        this.oText += '>> ' + response.result + '\n';
+      }
+      
     }
   }
 
@@ -54,7 +65,7 @@ export class AppComponent {
 
   // Output editor settings
   
-  oText: string = `# This is where your CQL script results will be displayed
+  oText: string = `// CQL expression results
 
 `;
   oOptions:any = { vScrollBarAlwaysVisible: true, showLineNumbers: false , showGutter: false };
@@ -69,8 +80,5 @@ export class AppComponent {
   toggleResources () {
     this.resources = !this.resources;
   }
-
-  // TODO: Strip comments from user's script
-
 
 }
