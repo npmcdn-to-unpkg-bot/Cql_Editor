@@ -14,7 +14,7 @@
         <h4 class="title self-center md-col-1">Input</h4>
         <div id="select-engine" class="md-col-5 self-center">
           <div class="title">Engine Service URL</div>
-          <div class="link" [hidden]="editingEngineUri" (click)="toggleEditingEngineUri()">{{ model.engineServiceUri }}</div>
+          <div class="link" [hidden]="editingEngineUri" (click)="toggleEditingEngineUri()">{{ model.engineServiceUri }} <i class="material-icons" style="font-size: 0.75em">mode_edit</i></div>
           <div [hidden]="!editingEngineUri">
             <input type="text" 
               class="input" 
@@ -68,6 +68,8 @@
   <h1>CQL Editor</h1>
 
   <p>The CQL editor was designed to provide a live testbed for your CQL expressions.</p>
+
+  <p>The CQL service URL may be configured to point to your own CQL engine (our CQL engine endpoint is used by default)</p>
 
   <p>This is an open-source project–feel free to <a href="https://github.com/c-schuler/Cql_Editor">contribute and leave feedback</a>.</p>
 
