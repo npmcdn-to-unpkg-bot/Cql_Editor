@@ -18,30 +18,73 @@ export class AppComponent {
 
   error : string = '';
   running: boolean = false;
+  // TODO: Set this to our default
+  // TODO: Get these values from separate config file
+  model = {
+    fhirServiceUri: 'http://cql.dataphoria.org/cql-execution-service/cql/evaluate',
+    engineServiceUri: 'http://cql.dataphoria.org/cql-execution-service/cql/evaluate'
+  };
+  
+  editingFhirUri: boolean = false;
+
+  toggleEditingFhirUri() {
+    this.editingFhirUri = !this.editingFhirUri;
+  }
+
+  editingEngineUri: boolean = false;
+  toggleEditingEngineUri() {
+    this.editingEngineUri = !this.editingEngineUri;
+  }
 
   // Input editor settings
   iText: string = `// Enter your CQL script here and press 'Run'
 // The results will be displayed on the console to the right
 
 `;
-  iOptions:any = {vScrollBarAlwaysVisible: true} ;
+  iOptions: any = { vScrollBarAlwaysVisible: true };
   iTheme: string = "clouds";
 
   runScript() {
     if (!this.running) {
       this.running = true;
       this._apiService
-        .post(this.iText)
+        .post(this.iText, this.model.engineServiceUri, this.model.fhirServiceUri)
         .then(responses => {
           this.processResponses(responses);
           this.running = false;
         })
-        .catch(error => this.error = error);
+        .catch(error => {
+          this.error = error;
+          this.running = false;
+          this.oText += '>> Engine Service call failed: ' + error + '\n';
+        });
     }
+  }
+
+  // Tacks on line numbers from the given string location
+  private getNumberedResponses(responses: any) {
+
+    for (let response of responses) {
+      if (!response['translation-error'] && !response['error']) {
+        response.line = parseInt(response.location.substring(response.location.indexOf("[")+1, response.location.indexOf(":")));
+      }
+      
+    }
+
+    return responses;
+
   }
 
   // Walks through responses and tacks each one onto the output window
   private processResponses (responses: any) {
+
+    // TODO: Move this sorting/line property to service end
+    responses = this.getNumberedResponses (responses);
+    // // Sort responses in ascending order by line number
+    responses = responses.sort(function(a, b){
+      return a.line == b.line ? 0 : +(a.line > b.line) || -1;
+    });
+
     for (let response of responses) {
       // Invalid expression – could not translate
       if (response['translation-error']) {
@@ -53,7 +96,7 @@ export class AppComponent {
       }
       // Valid expression
       if (response['result']) {
-        this.oText += '>> ' + response.result + '\n';
+        this.oText += '>> ' + response.location + ' ' + response.result + '\n';
       }
       
     }

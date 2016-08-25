@@ -5,55 +5,25 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class APIService {
 
-  private serviceUrl = 'http://cql.dataphoria.org/cql-execution-service/cql/evaluate';  // URL to web api
-
 constructor(private http: Http) { }
-//   getHeroes() {
-//     return this.http.get(this.heroesUrl)
-//                .toPromise()
-//                .then(response => response.json().data as Hero[])
-//                .catch(this.handleError);
-//   }
-//   getHero(id: number) {
-//     return this.getHeroes()
-//                .then(heroes => heroes.find(hero => hero.id === id));
-//   }
-//   save(hero: Hero): Promise<Hero>  {
-//     if (hero.id) {
-//       return this.put(hero);
-//     }
-//     return this.post(hero);
-//   }
-//   delete(hero: Hero) {
-//     let headers = new Headers();
-//     headers.append('Content-Type', 'application/json');
-//     let url = `${this.heroesUrl}/${hero.id}`;
-//     return this.http
-//                .delete(url, {headers: headers})
-//                .toPromise()
-//                .catch(this.handleError);
-//   }
+
   // Send code statement
-  post(code: string): Promise<string> {
+  // engineService - URI of CQL engine
+  // fhirService - URI of FHIR engine
+  post(code: string, engineServiceUri: string, fhirServiceUri: string): Promise<string> {
     let headers = new Headers({
-      'Content-Type': 'text/plain'});
+      'Content-Type': 'text/plain',
+      // TODO: Comment back in once we've added localhost to CORS on the service end'
+      // Reference: http://stackoverflow.com/questions/18234366/restful-webservice-how-to-set-headers-in-java-to-accept-xmlhttprequest-allowed
+      //'FHIR-Service' : fhirServiceUri
+    });
     return this.http
-               .post(this.serviceUrl, code, {headers: headers})
+               .post(engineServiceUri, code, {headers: headers})
                .toPromise()
                .then(res => res.json())
                .catch(this.handleError);
   }
-  // Update existing Hero
-//   private put(hero: Hero) {
-//     let headers = new Headers();
-//     headers.append('Content-Type', 'application/json');
-//     let url = `${this.heroesUrl}/${hero.id}`;
-//     return this.http
-//                .put(url, JSON.stringify(hero), {headers: headers})
-//                .toPromise()
-//                .then(() => hero)
-//                .catch(this.handleError);
-//   }
+
   private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

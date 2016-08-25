@@ -81,16 +81,21 @@ button {
     overflow: auto;
 }
 
-.input-section {
+#input-section {
     background: #ebebeb;
     color: #333;
 }
 
-.input-section .title {
+#input-section .row {
+    min-height: 100px;
+    border-bottom: 1px solid #efefef;
+}
+
+#input-section .title {
     margin: 10px;
 }
 
-.input-section .button {
+#input-section .button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -98,28 +103,33 @@ button {
     padding: 5px 10px;
 }
 
-.input-section .button:hover {
+#input-section .button:hover {
     cursor: pointer;
 }
 
-.input-section .button.running {
+#input-section .button.running {
     background-color: darkgrey;
 }
 
-.input-section .button.running:hover {
+#input-section .button.running:hover {
     cursor: default;
 }
 
-.output-section {
+#output-section {
     background-color: #272822;
     color: #F8F8F2;
 }
 
-.output-section .title {
+#output-section .row {
+    min-height: 100px;
+    border-bottom: 1px solid #555651;
+}
+
+#output-section .title {
     margin: 10px;
 }
 
-.output-section .button {
+#output-section .button {
     background-color: #2f2f2f;
     border: none;
     color: white;
@@ -127,7 +137,7 @@ button {
     padding: 5px 10px;
 }
 
-.output-section .button:hover {
+#output-section .button:hover {
     cursor: pointer;
 }
 
@@ -139,4 +149,26 @@ button {
 
 #introduction h1 {
     font-size: 3em;
+}
+
+#select-engine, #select-fhir {
+    margin: 10px;
+}
+
+#select-engine .title, #select-fhir .title {
+    margin: 0;
+}
+
+#select-engine .link:hover, #select-fhir .link:hover {
+    cursor: pointer;
+}
+
+#select-engine .link, #select-fhir .link {
+    text-decoration: underline;
+    font-size: 0.75em;
+}
+
+#select-engine .input, #select-fhir .input  {
+    width:100%;
+    font-size: 0.75em;
 }
