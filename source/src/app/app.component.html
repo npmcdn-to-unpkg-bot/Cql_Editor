@@ -33,7 +33,7 @@
               name="fhirServiceUri">
           </div>-->
         </div>
-        <button class="button flex md-col-1" [class.running]="running" (click)="runScript()">
+        <button class="button flex md-col-2" [class.running]="running" (click)="runScript()">
           <div class="self-center">
             {{ running ? 'Running...' : 'Run'}}
           </div>
@@ -54,7 +54,6 @@
       </div>
       <div class="output-window" ace-editor [text]="oText" [mode]="'cql'" [options]="oOptions" [readOnly]="oIsReadOnly" [autoUpdateContent]="true"></div>
     </div>
-
   </div>
 </form>
 <div class="resources" [hidden]="!resources">
